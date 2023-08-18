@@ -1,7 +1,22 @@
 import os, time
 import openai
 
-openai.api_key = os.getenv("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")
+openai.api_key = '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'
+
+# messages = [ {"role": "system", "content":
+# 			"You are a intelligent assistant."} ]
+# while True:
+# 	message = input("User : ")
+# 	if message:
+# 		messages.append(
+# 			{"role": "user", "content": message},
+# 		)
+# 		chat = openai.ChatCompletion.create(
+# 			model="gpt-3.5-turbo", messages=messages
+# 		)
+# 	reply = chat.choices[0].message.content
+# 	print(f"ChatGPT: {reply}")
+# 	messages.append({"role": "assistant", "content": reply})
 
 completion = openai.ChatCompletion.create(
   model="gpt-3.5-turbo",
