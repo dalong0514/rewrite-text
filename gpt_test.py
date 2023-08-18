@@ -1,8 +1,8 @@
 import os, time
 import openai
 
-openai.api_key = "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"
-
+# openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 # messages = [ {"role": "system", "content":
 # 			"You are a intelligent assistant."} ]
 # while True:
