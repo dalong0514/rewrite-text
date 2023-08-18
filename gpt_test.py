@@ -1,7 +1,7 @@
 import os, time
 import openai
 
-openai.api_key = "sk-" + "2mNz6jjg7ONFY8Y1DgHxT3BlbkFJF5l6zGuIxhl4hIVfQH1Q"
+openai.api_key = "sk-" + "9YonsFAkxw09A3IDkL5qT3BlbkFJ8j80Aco5ecfDRJRYsbce"
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 # messages = [ {"role": "system", "content":
 # 			"You are a intelligent assistant."} ]
@@ -19,7 +19,7 @@ openai.api_key = "sk-" + "2mNz6jjg7ONFY8Y1DgHxT3BlbkFJF5l6zGuIxhl4hIVfQH1Q"
 # 	messages.append({"role": "assistant", "content": reply})
 
 completion = openai.ChatCompletion.create(
-  model="gpt-4-32k",
+  model="gpt-4",
   messages=[
     {"role": "user", "content": "请介绍道金斯《自私的基因》的主要内容"}
   ]
