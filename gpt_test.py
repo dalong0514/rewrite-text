@@ -19,7 +19,7 @@ openai.api_key = "sk-" + "2mNz6jjg7ONFY8Y1DgHxT3BlbkFJF5l6zGuIxhl4hIVfQH1Q"
 # 	messages.append({"role": "assistant", "content": reply})
 
 completion = openai.ChatCompletion.create(
-  model="gpt-3.5-turbo",
+  model="gpt-4-32k",
   messages=[
     {"role": "user", "content": "请介绍道金斯《自私的基因》的主要内容"}
   ]
