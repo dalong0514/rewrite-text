@@ -10,8 +10,7 @@ def progress_decorator(func):
             return func(pbar, *args, **kwargs)
     return wrapper
 
-# openai.api_key = "sk-" + "9YonsFAkxw09A3IDkL5qT3BlbkFJ8j80Aco5ecfDRJRYsbce"
-openai.api_key = os.getenv('OPENAI_API_KEY')
+openai.api_key = "sk-" + "9YonsFAkxw09A3IDkL5qT3BlbkFJ8j80Aco5ecfDRJRYsbce"
 
 def rewrite_text(pbar):
     # 第一步
