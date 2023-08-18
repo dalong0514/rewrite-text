@@ -2,7 +2,20 @@
 
 import glob, os, time
 
-def write_file():
+from tqdm import tqdm
+
+def progress_decorator(func):
+    def wrapper(*args, **kwargs):
+        total_steps = 3  # 假设函数有5个主要步骤
+        with tqdm(total=total_steps, desc="Function progress") as pbar:
+            return func(pbar, *args, **kwargs)
+    return wrapper
+
+@progress_decorator
+def write_file(pbar):
+    # 第一步
+    time.sleep(0.1)
+    pbar.update(1)
 
     # 获取当前文件夹的路径
     current_directory = os.path.dirname(os.path.abspath(__file__))
@@ -15,11 +28,17 @@ def write_file():
     with open(origin_path, 'r') as origin_file:
         content = origin_file.read()
 
+    # 第二步
+    time.sleep(0.1)
+    pbar.update(1)
     # 将读取的内容写入目标文件
     with open(target_path, 'w') as target_file:
         target_file.write(content)
 
-    print(content)
+    # 第三步
+    time.sleep(0.1)
+    pbar.update(1)
+    # print(content)
 
 
 if __name__ == '__main__':
