@@ -15,7 +15,7 @@ openai.api_key = "sk-" + "9YonsFAkxw09A3IDkL5qT3BlbkFJ8j80Aco5ecfDRJRYsbce"
 @progress_decorator
 def rewrite_text(pbar):
     # 第一步
-    time.sleep(0.1)
+    time.sleep(1)
     pbar.update(1)
     
     # 获取当前文件夹的路径
@@ -41,7 +41,7 @@ def rewrite_text(pbar):
     )
 
     # 第三步
-    time.sleep(0.1)
+    time.sleep(1)
     pbar.update(1)
 
     # 将读取的内容写入目标文件
@@ -50,7 +50,7 @@ def rewrite_text(pbar):
 
     # print(completion.choices[0].message.content)
     # 第四步
-    time.sleep(0.1)
+    time.sleep(1)
     pbar.update(1)
 
 if __name__ == '__main__':
