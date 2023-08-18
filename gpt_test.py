@@ -12,6 +12,7 @@ def progress_decorator(func):
 
 openai.api_key = "sk-" + "9YonsFAkxw09A3IDkL5qT3BlbkFJ8j80Aco5ecfDRJRYsbce"
 
+@progress_decorator
 def rewrite_text(pbar):
     # 第一步
     time.sleep(0.1)
