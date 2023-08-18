@@ -1,7 +1,7 @@
 import os, time
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 # messages = [ {"role": "system", "content":
 # 			"You are a intelligent assistant."} ]
