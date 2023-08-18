@@ -63,7 +63,7 @@ def progress_decorator(func):
     return wrapper
 
 @progress_decorator
-def write_file(pbar):
+def rewrite_text(pbar):
     # 第一步进度条
     time.sleep(0.1)
     pbar.update(1)
@@ -92,7 +92,7 @@ def write_file(pbar):
 
 if __name__ == '__main__':
     start_time = time.time()
-    write_file()
+    rewrite_text()
     end_time = time.time()
     print('OK!')
     print('Time Used: ' + str(end_time - start_time) + 's')
