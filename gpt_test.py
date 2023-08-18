@@ -3,29 +3,29 @@ import openai
 
 openai.api_key = "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"
 
-messages = [ {"role": "system", "content":
-			"You are a intelligent assistant."} ]
-while True:
-	message = input("User : ")
-	if message:
-		messages.append(
-			{"role": "user", "content": message},
-		)
-		chat = openai.ChatCompletion.create(
-			model="gpt-3.5-turbo", messages=messages
-		)
-	reply = chat.choices[0].message.content
-	print(f"ChatGPT: {reply}")
-	messages.append({"role": "assistant", "content": reply})
+# messages = [ {"role": "system", "content":
+# 			"You are a intelligent assistant."} ]
+# while True:
+# 	message = input("User : ")
+# 	if message:
+# 		messages.append(
+# 			{"role": "user", "content": message},
+# 		)
+# 		chat = openai.ChatCompletion.create(
+# 			model="gpt-3.5-turbo", messages=messages
+# 		)
+# 	reply = chat.choices[0].message.content
+# 	print(f"ChatGPT: {reply}")
+# 	messages.append({"role": "assistant", "content": reply})
 
-# completion = openai.ChatCompletion.create(
-#   model="gpt-3.5-turbo",
-#   messages=[
-#     {"role": "user", "content": "Tell the world about the ChatGPT API in the style of a pirate."}
-#   ]
-# )
+completion = openai.ChatCompletion.create(
+  model="gpt-3.5-turbo",
+  messages=[
+    {"role": "user", "content": "请介绍道金斯《自私的基因》的主要内容"}
+  ]
+)
 
-# print(completion.choices[0].message.content)
+print(completion.choices[0].message.content)
 
 
 # if __name__ == '__main__':
