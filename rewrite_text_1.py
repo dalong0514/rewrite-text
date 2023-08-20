@@ -82,8 +82,8 @@ def rewrite_text(pbar):
     # 获取当前文件夹的路径
     current_directory = os.path.dirname(os.path.abspath(__file__))
     # 定义源文件和目标文件的路径
-    origin_path = os.path.join(current_directory, 'origin_text.md')
-    target_path = os.path.join(current_directory, 'target_text.md')
+    origin_path = os.path.join(current_directory, 'origin_text_1.md')
+    target_path = os.path.join(current_directory, 'target_text_1.md')
     prompt_path = os.path.join(current_directory, 'prompt_text.md')
 
     # 读取源文件的内容并按字符拆分
