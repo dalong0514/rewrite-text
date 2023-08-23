@@ -67,7 +67,7 @@ def merge_and_save_chunks(chunks, filename):
 
 def progress_decorator(func):
     def wrapper(*args, **kwargs):
-        total_steps = 3  # 假设函数有4个主要步骤
+        total_steps = 2  # 假设函数有4个主要步骤
         with tqdm(total=total_steps, desc="Function progress") as pbar:
             return func(pbar, *args, **kwargs)
     return wrapper
@@ -89,15 +89,11 @@ def rewrite_text(pbar):
     # 读取源文件的内容并按字符拆分
     chunks = read_and_split_file(origin_path)
 
-    # 第二步进度条
-    time.sleep(0.1)
-    pbar.update(1)
-
     prompt = read_file(prompt_path)
     processed_chunks = process_chunks(chunks, prompt)
     merge_and_save_chunks(processed_chunks, target_path)
 
-    # 第三步
+    # 第二步进度条
     time.sleep(0.1)
     pbar.update(1)
 
