@@ -13,7 +13,7 @@ def read_file(filename):
 def read_and_split_file(filename):
     content = read_file(filename)
     # 按换行符分割文本
-    lines = content.split('\n')
+    lines = content.split('。')
     
     chunks = []
     chunk = ""
@@ -21,10 +21,10 @@ def read_and_split_file(filename):
     for line in lines:
         # 检查新的行加入chunk后是否超过1000字符
         if len(chunk) + len(line) + 1 <= 1000:  # 加1是为了计算换行符
-            chunk += line + '\n'
+            chunk += line + '。'
         else:
             chunks.append(chunk)
-            chunk = line + '\n'
+            chunk = line + '。'
     
     # 添加最后一个块
     if chunk:
@@ -71,8 +71,8 @@ def rewrite_text(pbar):
     # 获取当前文件夹的路径
     current_directory = os.path.dirname(os.path.abspath(__file__))
     # 定义源文件和目标文件的路径
-    origin_path = os.path.join(current_directory, 'origin_text.md')
-    target_path = os.path.join(current_directory, 'target_text.md')
+    origin_path = os.path.join(current_directory, 'origin_text_1.md')
+    target_path = os.path.join(current_directory, 'target_text_1.md')
     prompt_path = os.path.join(current_directory, 'prompt_text.md')
 
     chunks = read_and_split_file(origin_path)
