@@ -50,20 +50,9 @@ def generate_content(content):
 
 # 步骤二：处理内容
 def process_chunks(chunks, prompt):
-    processed_chunks = []
-    for chunk in chunks:
-        modified_chunk = prompt + '\n{\n' + chunk + '}'
-        responsed_content = generate_content(modified_chunk)
-        processed_chunks.append(responsed_content)
-    return processed_chunks
-
-
-# 步骤三：合并处理后的字符串并写入新文件
-def merge_and_save_chunks(chunks, filename):
-    merged_text = ''.join(chunks)
-    with open(filename, 'w', encoding='utf-8') as file:
-        file.write(merged_text)
-
+    modified_chunk = prompt + '\n{\n' + chunks + '}'
+    responsed_content = generate_content(modified_chunk)
+    return responsed_content
 
 def progress_decorator(func):
     def wrapper(*args, **kwargs):
@@ -86,12 +75,14 @@ def rewrite_text(pbar):
     target_path = os.path.join(current_directory, 'target_text_1.md')
     prompt_path = os.path.join(current_directory, 'prompt_text.md')
 
-    # 读取源文件的内容并按字符拆分
-    chunks = read_and_split_file(origin_path)
-
+    # 读取源文件的内容
+    content = read_file(origin_path)
+    # 读取提示词
     prompt = read_file(prompt_path)
-    processed_chunks = process_chunks(chunks, prompt)
-    merge_and_save_chunks(processed_chunks, target_path)
+    processed_chunks = process_chunks(content, prompt)
+    # 写入结果
+    with open(target_path, 'w', encoding='utf-8') as file:
+        file.write(processed_chunks)
 
     # 第二步进度条
     time.sleep(0.1)
