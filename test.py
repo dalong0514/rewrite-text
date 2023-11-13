@@ -6,7 +6,7 @@ from tqdm import tqdm
 
 # get the api_key from config.json
 def get_api_key():
-    with open('../../config.json') as f:
+    with open('/config.json') as f:
         config = json.load(f)
     return config['API_KEY_1']
 
