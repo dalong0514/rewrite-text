@@ -68,7 +68,7 @@ def rewrite_text(pbar):
 
 if __name__ == '__main__':
     start_time = time.time()
-    rewrite_text()
+    progress_decorator(rewrite_text())
     end_time = time.time()
     print('OK!')
     print('Time Used: ' + str(end_time - start_time) + 's')
