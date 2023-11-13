@@ -3,7 +3,13 @@ import openai
 
 from tqdm import tqdm
 
-openai.api_key = "sk-" + "9YonsFAkxw09A3IDkL5qT3BlbkFJ8j80Aco5ecfDRJRYsbce"
+# get the api_key from config.json
+def get_api_key():
+    with open('./config.json') as f:
+        config = json.load(f)
+    return config['API_KEY_1']
+
+openai.api_key = get_api_key()
 
 # 步骤一：读取文件并拆分字符串
 def read_file(filename):
@@ -39,7 +45,7 @@ def read_and_split_file(filename):
 # 生成内容
 def generate_content(content):
     completion = openai.ChatCompletion.create(
-    model="gpt-4",
+    model="gpt-4-1106-preview",
     messages=[
         {"role": "user", "content": content}
     ]
