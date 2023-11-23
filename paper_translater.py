@@ -3,7 +3,13 @@ import openai
 
 from tqdm import tqdm
 
-openai.api_key = "sk-" + "euHcbYwhFD322zCmdDGiT3BlbkFJHve1MuXi7zHVfZdEFion"
+# get the api_key from config.json
+def get_api_key():
+    with open('./config.json') as f:
+        config = json.load(f)
+    return config['API_KEY_1']
+
+openai.api_key = get_api_key()
 
 # 步骤一：读取文件并拆分字符串
 def read_file(filename):
@@ -23,7 +29,7 @@ def read_and_split_file(filename):
     
     for line in lines:
         # 检查新的行加入chunk后是否超过1000字符
-        if len(chunk) + len(line) + 1 <= 1000:  # 加1是为了计算换行符
+        if len(chunk) + len(line) + 1 <= 2000:  # 加1是为了计算换行符
             chunk += line + '。'
         else:
             chunks.append(chunk)
@@ -39,7 +45,7 @@ def read_and_split_file(filename):
 # 生成内容
 def generate_content(content):
     completion = openai.ChatCompletion.create(
-    model="gpt-4-1106-preview",
+    model="gpt-4",
     messages=[
         {"role": "user", "content": content}
     ]
