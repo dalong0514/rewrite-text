@@ -1,9 +1,16 @@
 import os, time
 import openai
+import json
 
 from tqdm import tqdm
 
-openai.api_key = "sk-" + "2qgMPs7OFYj7gyXrVljYT3BlbkFJAoe04EskRlp8Hjt2HBn4"
+# get the api_key from config.json
+def get_api_key():
+    with open('./config.json') as f:
+        config = json.load(f)
+    return config['API_KEY_1']
+
+openai.api_key = get_api_key()
 
 # 步骤一：读取文件并拆分字符串
 def read_file(filename):
