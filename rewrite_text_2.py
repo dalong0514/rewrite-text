@@ -22,22 +22,12 @@ def read_file(filename):
 # 步骤一：读取文件并拆分字符串
 def read_and_split_file(filename):
     content = read_file(filename)
-    # 按换行符分割文本
-    lines = content.split('。')
     
     chunks = []
     chunk = ""
     
-    for line in lines:
-        # 检查新的行加入chunk后是否超过1000字符
-        if len(chunk) + len(line) + 1 <= 1000:  # 加1是为了计算换行符
-            chunk += line + '。'
-        else:
-            chunks.append(chunk)
-            chunk = line + '。'
-    
-    # 添加最后一个块
-    if chunk:
+    for i in range(0, len(content), 1000):
+        chunk = content[i:i+1000]
         chunks.append(chunk)
         
     return chunks
