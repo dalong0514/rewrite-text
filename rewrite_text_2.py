@@ -46,8 +46,8 @@ def read_and_split_file(filename):
 # 生成内容
 def generate_content(content):
     completion = openai.ChatCompletion.create(
-    model="gpt-4",
-    # model="gpt-4-1106-preview",
+    # model="gpt-4",
+    model="gpt-4-1106-preview",
     messages=[
         {"role": "user", "content": content}
     ]
